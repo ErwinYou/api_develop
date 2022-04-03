@@ -5,34 +5,12 @@
     >
       <div class="inline-flex items-center space-x-2">
         <ButtonSecondary
-          class="tracking-wide !font-bold !text-secondaryDark hover:bg-primaryDark focus-visible:bg-primaryDark uppercase"
-          :label="t('app.name')"
-          to="/"
-        />
-        <AppGitHubStarButton class="mt-1.5 transition <sm:hidden" />
-      </div>
-      <div class="inline-flex items-center space-x-2">
-        <ButtonSecondary
           id="installPWA"
           v-tippy="{ theme: 'tooltip' }"
           :title="t('header.install_pwa')"
           svg="download"
           class="rounded hover:bg-primaryDark focus-visible:bg-primaryDark"
           @click.native="showInstallPrompt()"
-        />
-        <ButtonSecondary
-          v-tippy="{ theme: 'tooltip', allowHTML: true }"
-          :title="`${t('app.search')} <xmp>/</xmp>`"
-          svg="search"
-          class="rounded hover:bg-primaryDark focus-visible:bg-primaryDark"
-          @click.native="invokeAction('modals.search.toggle')"
-        />
-        <ButtonSecondary
-          v-tippy="{ theme: 'tooltip', allowHTML: true }"
-          :title="`${t('support.title')} <xmp>?</xmp>`"
-          svg="life-buoy"
-          class="rounded hover:bg-primaryDark focus-visible:bg-primaryDark"
-          @click.native="showSupport = true"
         />
         <ButtonSecondary
           v-if="currentUser === null"
@@ -147,17 +125,10 @@ import { onMounted, reactive, ref } from "@nuxtjs/composition-api"
 import { useNetwork } from "@vueuse/core"
 import intializePwa from "~/helpers/pwa"
 import { probableUser$ } from "~/helpers/fb/auth"
-import { getLocalConfig, setLocalConfig } from "~/newstore/localpersistence"
-import {
-  useReadonlyStream,
-  useI18n,
-  useToast,
-} from "~/helpers/utils/composables"
-import { defineActionHandler, invokeAction } from "~/helpers/actions"
+import { useReadonlyStream, useI18n } from "~/helpers/utils/composables"
+import { defineActionHandler } from "~/helpers/actions"
 
 const t = useI18n()
-
-const toast = useToast()
 
 /**
  * Once the PWA code is initialized, this holds a method
@@ -182,30 +153,6 @@ onMounted(() => {
   // Initializes the PWA code - checks if the app is installed,
   // etc.
   showInstallPrompt.value = intializePwa()
-
-  const cookiesAllowed = getLocalConfig("cookiesAllowed") === "yes"
-  if (!cookiesAllowed) {
-    toast.show(`${t("app.we_use_cookies")}`, {
-      duration: 0,
-      action: [
-        {
-          text: `${t("action.learn_more")}`,
-          onClick: (_, toastObject) => {
-            setLocalConfig("cookiesAllowed", "yes")
-            toastObject.goAway(0)
-            window.open("https://docs.hoppscotch.io/privacy", "_blank")?.focus()
-          },
-        },
-        {
-          text: `${t("action.dismiss")}`,
-          onClick: (_, toastObject) => {
-            setLocalConfig("cookiesAllowed", "yes")
-            toastObject.goAway(0)
-          },
-        },
-      ],
-    })
-  }
 })
 
 // Template refs

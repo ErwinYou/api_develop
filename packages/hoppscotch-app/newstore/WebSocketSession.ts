@@ -24,7 +24,7 @@ export type HoppWSSession = {
 }
 
 const defaultWSRequest: HoppWSRequest = {
-  endpoint: "wss://hoppscotch-websocket.herokuapp.com",
+  endpoint: "",
   protocols: [],
 }
 

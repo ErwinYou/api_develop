@@ -202,7 +202,6 @@
 <script lang="ts">
 import { defineComponent, ref } from "@nuxtjs/composition-api"
 import * as E from "fp-ts/Either"
-import { runMutation } from "~/helpers/backend/GQLClient"
 import { DeleteCollectionDocument } from "~/helpers/backend/graphql"
 import {
   getCompleteCollectionTree,
@@ -319,19 +318,6 @@ export default defineComponent({
         ) {
           this.$emit("select", { picked: null })
         }
-
-        runMutation(DeleteCollectionDocument, {
-          collectionID: this.folder.id,
-        })().then((result) => {
-          if (E.isLeft(result)) {
-            this.$toast.error(`${this.$t("error.something_went_wrong")}`)
-            console.error(result.left)
-          } else {
-            this.$toast.success(`${this.$t("state.deleted")}`)
-            this.$emit("update-team-collections")
-          }
-        })
-
         this.$emit("update-team-collections")
       }
     },

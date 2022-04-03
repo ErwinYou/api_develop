@@ -348,7 +348,6 @@ import {
   CreateTeamInvitationErrors,
   revokeTeamInvitation,
 } from "../../helpers/backend/mutations/TeamInvitation"
-import { GQLError, useGQLQuery } from "~/helpers/backend/GQLClient"
 import { useI18n, useToast } from "~/helpers/utils/composables"
 
 const t = useI18n()
@@ -365,39 +364,6 @@ const props = defineProps({
 const emit = defineEmits<{
   (e: "hide-modal"): void
 }>()
-
-const pendingInvites = useGQLQuery<
-  GetPendingInvitesQuery,
-  GetPendingInvitesQueryVariables,
-  ""
->({
-  query: GetPendingInvitesDocument,
-  variables: reactive({
-    teamID: props.editingTeamID,
-  }),
-  pollDuration: 10000,
-  updateSubs: computed(() =>
-    !props.editingTeamID
-      ? []
-      : [
-          {
-            key: 4,
-            query: TeamInvitationAddedDocument,
-            variables: {
-              teamID: props.editingTeamID,
-            },
-          },
-          {
-            key: 5,
-            query: TeamInvitationRemovedDocument,
-            variables: {
-              teamID: props.editingTeamID,
-            },
-          },
-        ]
-  ),
-  defer: true,
-})
 
 watch(
   () => props.show,

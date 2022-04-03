@@ -54,15 +54,6 @@
             :placeholder="`${t('action.search')}`"
             class="flex w-full p-4 py-2 bg-transparent"
           />
-          <div class="flex">
-            <ButtonSecondary
-              v-tippy="{ theme: 'tooltip' }"
-              to="https://docs.hoppscotch.io/quickstart/graphql"
-              blank
-              :title="t('app.wiki')"
-              svg="help-circle"
-            />
-          </div>
         </div>
         <SmartTabs
           ref="gqlTabs"
@@ -143,13 +134,6 @@
           {{ t("graphql.schema") }}
         </label>
         <div class="flex">
-          <ButtonSecondary
-            v-tippy="{ theme: 'tooltip' }"
-            to="https://docs.hoppscotch.io/quickstart/graphql"
-            blank
-            :title="t('app.wiki')"
-            svg="help-circle"
-          />
           <ButtonSecondary
             v-tippy="{ theme: 'tooltip' }"
             :title="t('state.linewrap')"

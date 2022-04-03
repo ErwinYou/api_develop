@@ -43,13 +43,6 @@
         />
         <span class="flex">
           <ButtonSecondary
-            v-tippy="{ theme: 'tooltip' }"
-            to="https://docs.hoppscotch.io/features/collections"
-            blank
-            :title="$t('app.wiki')"
-            svg="help-circle"
-          />
-          <ButtonSecondary
             v-if="!saveRequest"
             v-tippy="{ theme: 'tooltip' }"
             :disabled="
@@ -212,7 +205,6 @@ import {
   useReadonlyStream,
   useStreamSubscriber,
 } from "~/helpers/utils/composables"
-import { runMutation } from "~/helpers/backend/GQLClient"
 import {
   CreateChildCollectionDocument,
   CreateNewRootCollectionDocument,

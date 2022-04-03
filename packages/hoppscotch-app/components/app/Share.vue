@@ -52,12 +52,8 @@ const emit = defineEmits<{
 }>()
 
 const url = "https://hoppscotch.io"
-const text = "Hoppscotch - Open source API development ecosystem."
-const description =
-  "Helps you create requests faster, saving precious time on development."
 const subject = "Checkout Hoppscotch - an open source API development ecosystem"
 const summary = `Hi there!%0D%0A%0D%0AI thought you'll like this new platform that I joined called Hoppscotch - https://hoppscotch.io.%0D%0AIt is a simple and intuitive interface for creating and managing your APIs. You can build, test, document, and share your APIs.%0D%0A%0D%0AThe best part about Hoppscotch is that it is open source and free to get started.%0D%0A%0D%0A`
-const twitter = "hoppscotch_io"
 
 const copyIcon = ref("copy")
 const platforms = [
@@ -65,26 +61,6 @@ const platforms = [
     name: "Email",
     icon: "mail",
     link: `mailto:?subject=${subject}&body=${summary}`,
-  },
-  {
-    name: "Twitter",
-    icon: "brands/twitter",
-    link: `https://twitter.com/intent/tweet?text=${text} ${description}&url=${url}&via=${twitter}`,
-  },
-  {
-    name: "Facebook",
-    icon: "brands/facebook",
-    link: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-  },
-  {
-    name: "Reddit",
-    icon: "brands/reddit",
-    link: `https://www.reddit.com/submit?url=${url}&title=${text}`,
-  },
-  {
-    name: "LinkedIn",
-    icon: "brands/linkedin",
-    link: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
   },
 ]
 

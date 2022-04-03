@@ -58,13 +58,6 @@
         <div class="flex">
           <ButtonSecondary
             v-tippy="{ theme: 'tooltip' }"
-            to="https://docs.hoppscotch.io/features/environments"
-            blank
-            :title="$t('app.wiki')"
-            svg="help-circle"
-          />
-          <ButtonSecondary
-            v-tippy="{ theme: 'tooltip' }"
             svg="archive"
             :title="$t('modal.import_export')"
             @click.native="displayModalImportExport(true)"

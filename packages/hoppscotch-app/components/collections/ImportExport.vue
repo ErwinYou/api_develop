@@ -177,7 +177,6 @@ import { currentUser$ } from "~/helpers/fb/auth"
 import { appendRESTCollections, restCollections$ } from "~/newstore/collections"
 import { RESTCollectionImporters } from "~/helpers/import-export/import/importers"
 import { StepReturnValue } from "~/helpers/import-export/steps"
-import { runGQLQuery, runMutation } from "~/helpers/backend/GQLClient"
 import {
   ExportAsJsonDocument,
   ImportFromJsonDocument,

@@ -64,14 +64,6 @@
           </div>
         </div>
       </div>
-      <ButtonSecondary
-        :label="`${t('app.documentation')}`"
-        to="https://docs.hoppscotch.io/features/response"
-        svg="external-link"
-        blank
-        outline
-        reverse
-      />
     </div>
   </div>
 </template>

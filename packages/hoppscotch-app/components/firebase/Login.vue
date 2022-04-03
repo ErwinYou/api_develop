@@ -76,22 +76,6 @@
       </div>
     </template>
     <template #footer>
-      <p v-if="mode === 'sign-in'" class="text-secondaryLight">
-        By signing in, you are agreeing to our
-        <SmartAnchor
-          class="link"
-          to="https://docs.hoppscotch.io/terms"
-          blank
-          label="Terms of Service"
-        />
-        and
-        <SmartAnchor
-          class="link"
-          to="https://docs.hoppscotch.io/privacy"
-          blank
-          label="Privacy Policy"
-        />.
-      </p>
       <p v-if="mode === 'email'" class="text-secondaryLight">
         <SmartAnchor
           class="link"

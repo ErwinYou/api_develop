@@ -60,20 +60,13 @@
             </h4>
             <div class="my-1 text-secondaryLight">
               {{ t("settings.experiments_notice") }}
-              <SmartLink
-                class="link"
-                to="https://github.com/hoppscotch/hoppscotch/issues/new/choose"
-                blank
-              >
-                {{ t("app.contact_us") }} </SmartLink
-              >.
             </div>
             <div class="py-4 space-y-4">
-              <div class="flex items-center">
-                <SmartToggle :on="TELEMETRY_ENABLED" @change="showConfirmModal">
+              <!-- <div class="flex items-center">
+                <SmartToggle>
                   {{ t("settings.telemetry") }}
                 </SmartToggle>
-              </div>
+              </div> -->
               <div class="flex items-center">
                 <SmartToggle
                   :on="EXPAND_NAVIGATION"
@@ -166,20 +159,6 @@
             <h4 class="font-semibold text-secondaryDark">
               {{ t("settings.proxy") }}
             </h4>
-            <div class="my-1 text-secondaryLight">
-              {{
-                `${t("settings.official_proxy_hosting")} ${t(
-                  "settings.read_the"
-                )}`
-              }}
-              <SmartLink
-                class="link"
-                to="https://docs.hoppscotch.io/privacy"
-                blank
-              >
-                {{ t("app.proxy_privacy_policy") }} </SmartLink
-              >.
-            </div>
             <div class="py-4 space-y-4">
               <div class="flex items-center">
                 <SmartToggle
@@ -258,7 +237,6 @@ const colorMode = useColorMode()
 const PROXY_ENABLED = useSetting("PROXY_ENABLED")
 const PROXY_URL = useSetting("PROXY_URL")
 const EXTENSIONS_ENABLED = useSetting("EXTENSIONS_ENABLED")
-const TELEMETRY_ENABLED = useSetting("TELEMETRY_ENABLED")
 const EXPAND_NAVIGATION = useSetting("EXPAND_NAVIGATION")
 const SIDEBAR_ON_LEFT = useSetting("SIDEBAR_ON_LEFT")
 const ZEN_MODE = useSetting("ZEN_MODE")
@@ -327,13 +305,8 @@ const toggleInterceptor = (interceptor: "extension" | "proxy") => {
   }
 }
 
-const showConfirmModal = () => {
-  if (TELEMETRY_ENABLED.value) confirmRemove.value = true
-  else toggleSetting("TELEMETRY_ENABLED")
-}
-
 const resetProxy = () => {
-  applySetting("PROXY_URL", `https://proxy.hoppscotch.io/`)
+  applySetting("PROXY_URL", ``)
   clearIcon.value = "check"
   toast.success(`${t("state.cleared")}`)
   setTimeout(() => (clearIcon.value = "rotate-ccw"), 1000)

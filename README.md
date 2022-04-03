@@ -23,7 +23,7 @@
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen?logo=github)](CODE_OF_CONDUCT.md) [![Website](https://img.shields.io/website?url=https%3A%2F%2Fhoppscotch.io&logo=hoppscotch)](https://hoppscotch.io) [![Tests](https://github.com/hoppscotch/hoppscotch/actions/workflows/tests.yml/badge.svg)](https://github.com/hoppscotch/hoppscotch/actions) [![Tweet](https://img.shields.io/twitter/url?url=https%3A%2F%2Fhoppscotch.io%2F)](https://twitter.com/share?text=%F0%9F%91%BD%20Hoppscotch%20%E2%80%A2%20Open%20source%20API%20development%20ecosystem%20-%20Helps%20you%20create%20requests%20faster,%20saving%20precious%20time%20on%20development.&url=https://hoppscotch.io&hashtags=hoppscotch&via=hoppscotch_io)
 
-  </p>
+</p>
   <p>
     <sub>
       Built with ❤︎ by
@@ -97,7 +97,6 @@ _Customized themes are synced with cloud / local session_
 1. Choose `method`
 2. Enter `URL`
 3. Send
-
 - Copy/share public "Share URL"
 - Generate/copy request code snippets for 10+ languages and frameworks
 - Import `cURL`
@@ -187,11 +186,13 @@ Help us to translate Hoppscotch. Please read [`TRANSLATIONS`](TRANSLATIONS.md) f
 📦 **Add-ons:** Official add-ons for hoppscotch.
 
 - **[Proxy](https://github.com/hoppscotch/proxyscotch)** - A simple proxy server created for Hoppscotch
+
 - **[CLI β](https://github.com/hoppscotch/hopp-cli)** - A CLI solution for Hoppscotch
+
 - **[Browser Extensions](https://github.com/hoppscotch/hoppscotch-extension)** - Browser extensions that simplifies access to Hoppscotch
-
+  
   [![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_16x16.png) **Firefox**](https://addons.mozilla.org/en-US/firefox/addon/hoppscotch) &nbsp;|&nbsp; [![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_16x16.png) **Chrome**](https://chrome.google.com/webstore/detail/hoppscotch-extension-for-c/amknoiejhlmhancpahfcfcfhllgkpbld)
-
+  
   > **Extensions fixes `CORS` issues.**
 
 - **[Hopp-Doc-Gen](https://github.com/hoppscotch/hopp-doc-gen)** - An API doc generator CLI for Hoppscotch

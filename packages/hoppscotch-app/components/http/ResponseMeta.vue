@@ -38,14 +38,6 @@
           </div>
         </div>
       </div>
-      <ButtonSecondary
-        :label="t('app.documentation')"
-        to="https://docs.hoppscotch.io/features/response"
-        svg="external-link"
-        blank
-        outline
-        reverse
-      />
     </div>
     <div v-else class="flex flex-col flex-1">
       <div

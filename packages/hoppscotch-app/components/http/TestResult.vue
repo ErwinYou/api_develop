@@ -172,15 +172,6 @@
       <span class="pb-4 text-center">
         {{ t("helpers.tests") }}
       </span>
-      <ButtonSecondary
-        outline
-        :label="`${t('action.learn_more')}`"
-        to="https://docs.hoppscotch.io/features/tests"
-        blank
-        svg="external-link"
-        reverse
-        class="my-4"
-      />
     </div>
     <EnvironmentsDetails
       :show="showModalDetails"

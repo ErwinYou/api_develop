@@ -11,13 +11,6 @@
       <div class="flex">
         <ButtonSecondary
           v-tippy="{ theme: 'tooltip' }"
-          to="https://docs.hoppscotch.io/features/history"
-          blank
-          :title="t('app.wiki')"
-          svg="help-circle"
-        />
-        <ButtonSecondary
-          v-tippy="{ theme: 'tooltip' }"
           data-testid="clear_history"
           :disabled="history.length === 0"
           svg="trash-2"

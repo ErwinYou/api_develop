@@ -60,7 +60,7 @@ export const defaultSettings: SettingsType = {
   syncEnvironments: true,
 
   PROXY_ENABLED: false,
-  PROXY_URL: "https://proxy.hoppscotch.io/",
+  PROXY_URL: "",
   EXTENSIONS_ENABLED: false,
   URL_EXCLUDES: {
     auth: true,

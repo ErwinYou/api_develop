@@ -115,13 +115,6 @@
         </SmartCheckbox>
         <ButtonSecondary
           v-tippy="{ theme: 'tooltip' }"
-          to="https://docs.hoppscotch.io/features/authorization"
-          blank
-          :title="$t('app.wiki')"
-          svg="help-circle"
-        />
-        <ButtonSecondary
-          v-tippy="{ theme: 'tooltip' }"
           :title="$t('action.clear')"
           svg="trash-2"
           @click.native="clearContent"
@@ -141,15 +134,6 @@
       <span class="pb-4 text-center">
         {{ $t("empty.authorization") }}
       </span>
-      <ButtonSecondary
-        outline
-        :label="$t('app.documentation')"
-        to="https://docs.hoppscotch.io/features/authorization"
-        blank
-        svg="external-link"
-        reverse
-        class="mb-4"
-      />
     </div>
     <div v-else class="flex flex-1 border-b border-dividerLight">
       <div class="w-2/3 border-r border-dividerLight">
@@ -262,12 +246,6 @@
         <div class="pb-2 text-secondaryLight">
           {{ $t("helpers.authorization") }}
         </div>
-        <SmartAnchor
-          class="link"
-          :label="`${$t('authorization.learn')} \xA0 →`"
-          to="https://docs.hoppscotch.io/features/authorization"
-          blank
-        />
       </div>
     </div>
   </div>

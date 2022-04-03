@@ -37,13 +37,6 @@
             />
             <ButtonSecondary
               v-tippy="{ theme: 'tooltip' }"
-              to="https://docs.hoppscotch.io/graphql"
-              blank
-              :title="t('app.wiki')"
-              svg="help-circle"
-            />
-            <ButtonSecondary
-              v-tippy="{ theme: 'tooltip' }"
               :title="t('action.clear_all')"
               svg="trash-2"
               @click.native="clearGQLQuery()"
@@ -77,13 +70,6 @@
             {{ t("request.variables") }}
           </label>
           <div class="flex">
-            <ButtonSecondary
-              v-tippy="{ theme: 'tooltip' }"
-              to="https://docs.hoppscotch.io/graphql"
-              blank
-              :title="t('app.wiki')"
-              svg="help-circle"
-            />
             <ButtonSecondary
               v-tippy="{ theme: 'tooltip' }"
               :title="t('action.clear_all')"
@@ -120,13 +106,6 @@
             {{ t("tab.headers") }}
           </label>
           <div class="flex">
-            <ButtonSecondary
-              v-tippy="{ theme: 'tooltip' }"
-              to="https://docs.hoppscotch.io/graphql"
-              blank
-              :title="t('app.wiki')"
-              svg="help-circle"
-            />
             <ButtonSecondary
               v-tippy="{ theme: 'tooltip' }"
               :title="t('action.clear_all')"

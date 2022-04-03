@@ -235,8 +235,6 @@ import { defineActionHandler } from "~/helpers/actions"
 import { copyToClipboard } from "~/helpers/utils/clipboard"
 import { useSetting } from "~/newstore/settings"
 import { createShortcode } from "~/helpers/backend/mutations/Shortcode"
-import { runMutation } from "~/helpers/backend/GQLClient"
-import { UpdateRequestDocument } from "~/helpers/backend/graphql"
 
 const t = useI18n()
 
@@ -431,8 +429,8 @@ const copyShareLink = (shareLink: string) => {
     const date = new Date().toLocaleDateString()
     navigator
       .share({
-        title: "Hoppscotch",
-        text: `Hoppscotch • Open source API development ecosystem at ${time} on ${date}`,
+        title: "开源API开发生态系统",
+        text: `张登友的开源API开发生态系统 at ${time} on ${date}`,
         url: `https://hopp.sh/r${shareLink}`,
       })
       .then(() => {})
@@ -489,29 +487,6 @@ const saveRequest = () => {
     } catch (e) {
       setRESTSaveContext(null)
       saveRequest()
-    }
-  } else if (saveCtx.originLocation === "team-collection") {
-    const req = getRESTRequest()
-
-    // TODO: handle error case (NOTE: overwriteRequestTeams is async)
-    try {
-      runMutation(UpdateRequestDocument, {
-        requestID: saveCtx.requestID,
-        data: {
-          title: req.name,
-          request: JSON.stringify(req),
-        },
-      })().then((result) => {
-        if (E.isLeft(result)) {
-          toast.error(`${t("profile.no_permission")}`)
-        } else {
-          toast.success(`${t("request.saved")}`)
-        }
-      })
-    } catch (error) {
-      showSaveRequestModal.value = true
-      toast.error(`${t("error.something_went_wrong")}`)
-      console.error(error)
     }
   }
 }

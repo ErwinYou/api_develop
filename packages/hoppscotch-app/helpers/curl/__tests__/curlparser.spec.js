@@ -8,7 +8,7 @@ const samples = [
   {
     command: `
       curl --request GET \
-      --url https://echo.hoppscotch.io/ \
+      --url  \
       --header 'content-type: application/x-www-form-urlencoded' \
       --data a=b \
       --data c=d
@@ -16,7 +16,7 @@ const samples = [
     response: makeRESTRequest({
       method: "GET",
       name: "Untitled request",
-      endpoint: "https://echo.hoppscotch.io/",
+      endpoint: "",
       auth: { authType: "none", authActive: false },
       body: {
         contentType: "application/x-www-form-urlencoded",
@@ -521,7 +521,7 @@ const samples = [
   },
   {
     command: `curl --request GET \
-    --url 'https://echo.hoppscotch.io/?hello=there' \
+    --url 'https://api.apiopen.top/recommendPoetry/?hello=there' \
     --header 'content-type: application/x-www-form-urlencoded' \
     --header 'something: other-thing' \
     --data a=b \
@@ -529,7 +529,7 @@ const samples = [
     response: makeRESTRequest({
       method: "GET",
       name: "Untitled request",
-      endpoint: "https://echo.hoppscotch.io/",
+      endpoint: "https://api.apiopen.top/recommendPoetry/",
       auth: { authType: "none", authActive: false },
       body: {
         contentType: "application/x-www-form-urlencoded",
@@ -566,14 +566,14 @@ const samples = [
   },
   {
     command: `curl --request POST \
-    --url 'https://echo.hoppscotch.io/?hello=there' \
+    --url 'https://api.apiopen.top/recommendPoetry/?hello=there' \
     --header 'content-type: multipart/form-data' \
     --header 'something: other-thing' \
     --form a=b \
     --form c=d`,
     response: makeRESTRequest({
       name: "Untitled request",
-      endpoint: "https://echo.hoppscotch.io/",
+      endpoint: "https://api.apiopen.top/recommendPoetry/",
       method: "POST",
       auth: { authType: "none", authActive: false },
       headers: [

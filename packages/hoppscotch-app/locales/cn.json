@@ -46,13 +46,13 @@
     "copy": "复制",
     "documentation": "帮助文档",
     "github": "GitHub",
-    "help": "帮助与反馈",
+    "help": "帮助",
     "home": "主页",
     "invite": "邀请",
     "invite_description": "Hoppscotch 是一个开源的 API 开发生态系统。我们设计了简单而直观的界面来创建和管理你的 API。Hoppscotch 是一个帮助你构建、测试、记录与分享你的 API 的工具。",
     "invite_your_friends": "邀请你的伙伴",
     "join_discord_community": "加入我们的 Discord 社区",
-    "keyboard_shortcuts": "键盘快捷键",
+    "keyboard_shortcuts": "快捷键",
     "name": "Hoppscotch",
     "new_version_found": "已发现新版本。刷新页面以更新。",
     "proxy_privacy_policy": "代理隐私政策",
@@ -218,7 +218,7 @@
   "header": {
     "install_pwa": "安装应用",
     "login": "登录",
-    "save_workspace": "保存我的工作区"
+    "save_workspace": "保存工作区"
   },
   "helpers": {
     "authorization": "授权头将会在你发送请求时自动生成。",
@@ -416,7 +416,7 @@
       "close_current_menu": "关闭当前菜单",
       "command_menu": "搜索与命令菜单",
       "help_menu": "帮助菜单",
-      "show_all": "键盘快捷键",
+      "show_all": "快捷键",
       "title": "通用"
     },
     "miscellaneous": {

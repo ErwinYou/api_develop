@@ -10,18 +10,6 @@
           :class="{ '-rotate-180': !EXPAND_NAVIGATION }"
           @click.native="EXPAND_NAVIGATION = !EXPAND_NAVIGATION"
         />
-        <ButtonSecondary
-          v-tippy="{ theme: 'tooltip' }"
-          :title="`${ZEN_MODE ? t('action.turn_off') : t('action.turn_on')} ${t(
-            'layout.zen_mode'
-          )}`"
-          :svg="ZEN_MODE ? 'minimize' : 'maximize'"
-          :class="{
-            '!text-accent !focus-visible:text-accentDark !hover:text-accentDark':
-              ZEN_MODE,
-          }"
-          @click.native="ZEN_MODE = !ZEN_MODE"
-        />
         <tippy
           ref="interceptorOptions"
           interactive
@@ -39,6 +27,7 @@
           <AppInterceptor />
         </tippy>
       </div>
+
       <div class="flex">
         <tippy
           ref="options"
@@ -87,60 +76,16 @@
               "
             />
             <SmartItem
-              ref="chat"
-              svg="message-circle"
-              :label="`${t('app.chat_with_us')}`"
-              :shortcut="['C']"
-              @click.native="
-                () => {
-                  chatWithUs()
-                  options.tippy().hide()
-                }
-              "
-            />
-            <SmartItem
-              svg="gift"
-              :label="`${t('app.whats_new')}`"
-              to="https://docs.hoppscotch.io/changelog"
-              blank
-              @click.native="options.tippy().hide()"
-            />
-            <SmartItem
               svg="activity"
               :label="t('app.status')"
               to="https://status.hoppscotch.io"
               blank
               @click.native="options.tippy().hide()"
             />
-            <hr />
             <SmartItem
               svg="github"
               :label="`${t('app.github')}`"
               to="https://github.com/hoppscotch/hoppscotch"
-              blank
-              @click.native="options.tippy().hide()"
-            />
-            <SmartItem
-              svg="twitter"
-              :label="`${t('app.twitter')}`"
-              to="https://hoppscotch.io/twitter"
-              blank
-              @click.native="options.tippy().hide()"
-            />
-            <SmartItem
-              svg="user-plus"
-              :label="`${t('app.invite')}`"
-              @click.native="
-                () => {
-                  showShare = true
-                  options.tippy().hide()
-                }
-              "
-            />
-            <SmartItem
-              svg="lock"
-              :label="`${t('app.terms_and_privacy')}`"
-              to="https://docs.hoppscotch.io/privacy"
               blank
               @click.native="options.tippy().hide()"
             />
@@ -149,19 +94,6 @@
             </div>
           </div>
         </tippy>
-        <ButtonSecondary
-          v-tippy="{ theme: 'tooltip' }"
-          svg="zap"
-          :title="t('app.shortcuts')"
-          @click.native="showShortcuts = true"
-        />
-        <ButtonSecondary
-          v-if="navigatorShare"
-          v-tippy="{ theme: 'tooltip' }"
-          svg="share-2"
-          :title="t('request.share')"
-          @click.native="nativeShare()"
-        />
         <ButtonSecondary
           v-tippy="{ theme: 'tooltip' }"
           :title="COLUMN_LAYOUT ? t('layout.row') : t('layout.column')"
@@ -196,7 +128,6 @@
 <script setup lang="ts">
 import { ref, watch } from "@nuxtjs/composition-api"
 import { defineActionHandler } from "~/helpers/actions"
-import { showChat } from "~/helpers/support"
 import { useSetting } from "~/newstore/settings"
 import { useI18n } from "~/helpers/utils/composables"
 
@@ -223,33 +154,12 @@ const ZEN_MODE = useSetting("ZEN_MODE")
 const COLUMN_LAYOUT = useSetting("COLUMN_LAYOUT")
 const SIDEBAR_ON_LEFT = useSetting("SIDEBAR_ON_LEFT")
 
-const navigatorShare = !!navigator.share
-
 watch(
   () => ZEN_MODE.value,
   () => {
     EXPAND_NAVIGATION.value = !ZEN_MODE.value
   }
 )
-
-const nativeShare = () => {
-  if (navigator.share) {
-    navigator
-      .share({
-        title: "Hoppscotch",
-        text: "Hoppscotch • Open source API development ecosystem - Helps you create requests faster, saving precious time on development.",
-        url: "https://hoppscotch.io",
-      })
-      .then(() => {})
-      .catch(console.error)
-  } else {
-    // fallback
-  }
-}
-
-const chatWithUs = () => {
-  showChat()
-}
 
 // Template refs
 const tippyActions = ref<any | null>(null)

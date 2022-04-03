@@ -137,13 +137,6 @@
           </SmartCheckbox>
           <ButtonSecondary
             v-tippy="{ theme: 'tooltip' }"
-            to="https://docs.hoppscotch.io/features/authorization"
-            blank
-            :title="$t('app.wiki')"
-            svg="help-circle"
-          />
-          <ButtonSecondary
-            v-tippy="{ theme: 'tooltip' }"
             :title="$t('action.clear')"
             svg="trash-2"
             @click.native="clearContent"
@@ -163,15 +156,6 @@
         <span class="pb-4 text-center">
           This SocketIO connection does not use any authentication.
         </span>
-        <ButtonSecondary
-          outline
-          :label="$t('app.documentation')"
-          to="https://docs.hoppscotch.io/features/authorization"
-          blank
-          svg="external-link"
-          reverse
-          class="mb-4"
-        />
       </div>
       <div
         v-if="authType === 'Bearer'"
@@ -189,12 +173,6 @@
             <div class="pb-2 text-secondaryLight">
               {{ $t("helpers.authorization") }}
             </div>
-            <SmartAnchor
-              class="link"
-              :label="`${$t('authorization.learn')} \xA0 →`"
-              to="https://docs.hoppscotch.io/features/authorization"
-              blank
-            />
           </div>
         </div>
       </div>

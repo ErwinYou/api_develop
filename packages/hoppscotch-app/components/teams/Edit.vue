@@ -210,7 +210,6 @@ import {
   updateTeamMemberRole,
 } from "~/helpers/backend/mutations/Team"
 import { TeamNameCodec } from "~/helpers/backend/types/TeamName"
-import { useGQLQuery } from "~/helpers/backend/GQLClient"
 import { useI18n, useToast } from "~/helpers/utils/composables"
 
 const t = useI18n()

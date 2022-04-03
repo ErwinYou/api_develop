@@ -25,7 +25,7 @@ type HoppSIOSession = {
 }
 
 const defaultSIORequest: HoppSIORequest = {
-  endpoint: "wss://hoppscotch-socketio.herokuapp.com",
+  endpoint: "",
   path: "/socket.io",
   version: "v4",
 }

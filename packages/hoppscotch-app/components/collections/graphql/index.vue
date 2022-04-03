@@ -21,13 +21,6 @@
         />
         <div class="flex">
           <ButtonSecondary
-            v-tippy="{ theme: 'tooltip' }"
-            to="https://docs.hoppscotch.io/features/collections"
-            blank
-            :title="$t('app.wiki')"
-            svg="help-circle"
-          />
-          <ButtonSecondary
             v-if="showCollActions"
             v-tippy="{ theme: 'tooltip' }"
             :title="$t('modal.import_export')"

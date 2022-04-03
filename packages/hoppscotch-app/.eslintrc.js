@@ -51,6 +51,6 @@ module.exports = {
     ],
   },
   globals: {
-    $nuxt: true,
+    $nuxt: false,
   },
 }

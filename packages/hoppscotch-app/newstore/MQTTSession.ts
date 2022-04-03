@@ -20,7 +20,7 @@ type HoppMQTTSession = {
 }
 
 const defaultMQTTRequest: HoppMQTTRequest = {
-  endpoint: "wss://test.mosquitto.org:8081",
+  endpoint: "",
 }
 
 const defaultMQTTSession: HoppMQTTSession = {

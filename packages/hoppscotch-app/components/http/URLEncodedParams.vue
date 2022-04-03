@@ -9,13 +9,6 @@
       <div class="flex">
         <ButtonSecondary
           v-tippy="{ theme: 'tooltip' }"
-          to="https://docs.hoppscotch.io/features/body"
-          blank
-          :title="t('app.wiki')"
-          svg="help-circle"
-        />
-        <ButtonSecondary
-          v-tippy="{ theme: 'tooltip' }"
           :title="t('action.clear_all')"
           svg="trash-2"
           @click.native="clearContent()"

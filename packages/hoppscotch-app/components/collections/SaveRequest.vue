@@ -75,7 +75,6 @@ import {
   useRESTRequestName,
 } from "~/newstore/RESTSession"
 import { useI18n, useToast } from "~/helpers/utils/composables"
-import { runMutation } from "~/helpers/backend/GQLClient"
 import {
   CreateRequestInCollectionDocument,
   UpdateRequestDocument,

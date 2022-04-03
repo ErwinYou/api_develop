@@ -25,44 +25,6 @@
           active
           @click.native="showShortcuts()"
         />
-        <SmartItem
-          svg="gift"
-          :label="t('app.whats_new')"
-          to="https://docs.hoppscotch.io/changelog"
-          :description="t('support.changelog')"
-          info-icon="chevron_right"
-          active
-          blank
-          @click.native="hideModal()"
-        />
-        <SmartItem
-          svg="message-circle"
-          :label="t('app.chat_with_us')"
-          :description="t('support.chat')"
-          info-icon="chevron_right"
-          active
-          @click.native="chatWithUs()"
-        />
-        <SmartItem
-          svg="brands/discord"
-          :label="t('app.join_discord_community')"
-          to="https://hoppscotch.io/discord"
-          blank
-          :description="t('support.community')"
-          info-icon="chevron_right"
-          active
-          @click.native="hideModal()"
-        />
-        <SmartItem
-          svg="brands/twitter"
-          :label="t('app.twitter')"
-          to="https://hoppscotch.io/twitter"
-          blank
-          :description="t('support.twitter')"
-          info-icon="chevron_right"
-          active
-          @click.native="hideModal()"
-        />
       </div>
     </template>
   </SmartModal>
@@ -70,7 +32,6 @@
 
 <script setup lang="ts">
 import { invokeAction } from "~/helpers/actions"
-import { showChat } from "~/helpers/support"
 import { useI18n } from "~/helpers/utils/composables"
 
 const t = useI18n()
@@ -82,11 +43,6 @@ defineProps<{
 const emit = defineEmits<{
   (e: "hide-modal"): void
 }>()
-
-const chatWithUs = () => {
-  showChat()
-  hideModal()
-}
 
 const showShortcuts = () => {
   invokeAction("flyouts.keybinds.toggle")

@@ -19,7 +19,7 @@ type HoppSSESession = {
 }
 
 const defaultSSERequest: HoppSSERequest = {
-  endpoint: "https://express-eventsource.herokuapp.com/events",
+  endpoint: "",
   eventType: "data",
 }
 
