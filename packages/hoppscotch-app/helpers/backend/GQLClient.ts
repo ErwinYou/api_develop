@@ -20,13 +20,12 @@ import {
   makeOperation,
   GraphQLRequest,
   createRequest,
-  subscriptionExchange,
 } from "@urql/core"
 import { authExchange } from "@urql/exchange-auth"
 // import { offlineExchange } from "@urql/exchange-graphcache"
 // import { makeDefaultStorage } from "@urql/exchange-graphcache/default-storage"
 import { devtoolsExchange } from "@urql/devtools"
-import { SubscriptionClient } from "subscriptions-transport-ws"
+// import { SubscriptionClient } from "subscriptions-transport-ws"
 import * as E from "fp-ts/Either"
 import * as TE from "fp-ts/TaskEither"
 import { pipe, constVoid } from "fp-ts/function"
@@ -46,30 +45,16 @@ import {
 
 const BACKEND_GQL_URL =
   process.env.context === "production"
-    ? "https://api.hoppscotch.io/graphql"
-    : "https://api.hoppscotch.io/graphql"
+    ? "https://www.zdynb"
+    : "https://www.zdynb"
 
 // const storage = makeDefaultStorage({
 //   idbName: "hoppcache-v1",
 //   maxAge: 7,
 // })
 
-const subscriptionClient = new SubscriptionClient(
-  process.env.context === "production"
-    ? "wss://api.hoppscotch.io/graphql"
-    : "wss://api.hoppscotch.io/graphql",
-  {
-    reconnect: true,
-    connectionParams: () => {
-      return {
-        authorization: `Bearer ${authIdToken$.value}`,
-      }
-    },
-  }
-)
-
 authIdToken$.subscribe(() => {
-  subscriptionClient.client?.close()
+  // subscriptionClient.client?.close()
 })
 
 const createHoppClient = () =>
@@ -122,10 +107,6 @@ const createHoppClient = () =>
         },
       }),
       fetchExchange,
-      subscriptionExchange({
-        forwardSubscription: (operation) =>
-          subscriptionClient.request(operation),
-      }),
     ],
   })
 

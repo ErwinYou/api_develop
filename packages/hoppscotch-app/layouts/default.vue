@@ -192,15 +192,6 @@ export default defineComponent({
   },
   async mounted() {
     performMigrations()
-    console.info(
-      "%cWe ❤︎ open source!",
-      "background-color:white;padding:8px 16px;border-radius:8px;font-size:32px;color:red;"
-    )
-    console.info(
-      "%cContribute: https://github.com/hoppscotch/hoppscotch",
-      "background-color:black;padding:4px 8px;border-radius:8px;font-size:16px;color:white;"
-    )
-
     const workbox = await (window as any).$workbox
     if (workbox) {
       workbox.addEventListener("installed", (event: any) => {
