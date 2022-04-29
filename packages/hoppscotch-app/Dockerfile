@@ -9,11 +9,9 @@ FROM node:lts-alpine as build
 WORKDIR /app
 ADD . /app
 COPY . .
-RUN npm i -g pnpm
-RUN pnpm install
-# RUN pnpm i --unsafe-perm=true
+RUN npm i -g pnpm && pnpm i --unsafe-perm=true && pnpm generate
+# RUN pnpm install
 # RUN mv .env.example .env
-RUN pnpm generate
 
 FROM node:lts-alpine
 WORKDIR /app
